@@ -34,7 +34,7 @@ while (1) {
             echo 'read from client:' . $data . PHP_EOL;
             socket_write($conn, $data, strlen($data));  //回写给客户端
         }
-        //客户端关闭
+        // 客户端关闭
         socket_close($conn);
     }
 }
@@ -47,7 +47,7 @@ function saveLog($res)
 {
     $errcode = socket_last_error();
     // 读写方式打开文件，将文件指针指向文件末尾。如果文件不存在，则创建。
-    $myFile = fopen('socket_log', "a+");
+    $myFile = fopen('socket_log.txt', "a+");
     fwrite($myFile,$res . socket_strerror($errcode) . PHP_EOL);
     // 关闭打开的文件
     fclose($myFile);
